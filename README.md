@@ -23,7 +23,10 @@ Download u-center from their official website [U-Center](https://www.u-blox.com/
 - My configurations of the RFD modems ![]
 
 ### Firmware Update on simplertk2b boards  
-- From the below website  
-> https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-4
+- Connect the Simplertk2b budget board to GNSS Survey antenna using the cable given. Refer the **GPS/GNSS Antenna** section to setup the antenna in the website [User Guide: simpleRTK2B Budget](https://www.ardusimple.com/user-guide-simplertk2b-budget/#elementor-toc__heading-anchor-11).
+- Connect the the USB-B type cable to USB GPS port in the board and other end to the PC.
+- Open the U-center and connect the budget board with the suitable COM port and set the baud rate to 115200
+- From the below website
+> [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-4)
 - In this website go to **firmware version check** section download the **Version 1.32**. Extract the file in separate folder.
-- And follow the **F
+- And follow the **Firmware update** section to update the firmware and cross check that the version updated correctly with the 
