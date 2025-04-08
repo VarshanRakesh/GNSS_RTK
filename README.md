@@ -23,19 +23,26 @@ Download u-center from their official website [U-Center](https://www.u-blox.com/
 - I have set the RFD modems to below configurations
 - My configurations of the RFD modems ![rfd](https://github.com/user-attachments/assets/59c83083-9d58-4ba6-b050-ba52968d61f9)
 
+### For Simplertk2b Budget Board:
 
-### Firmware Update on all of the three simplertk2b boards
-1. Connect the Simplertk2b budget board to GNSS Survey antenna using the cable given. Refer the **GPS/GNSS Antenna** section to setup the antenna in the website [User Guide: simpleRTK2B Budget](https://www.ardusimple.com/user-guide-simplertk2b-budget/#elementor-toc__heading-anchor-11).
-2.  Connect the the USB-B type cable to USB GPS port in the board and other end to the PC.
-3.  Open the U-center and connect the budget board with the suitable COM port and set the baud rate to 115200.
-4.  From the website [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-4) go to **firmware version check** section download the **Version 1.32**. Extract the file in separate folder.
-5.  And follow the **Firmware update** section to update the firmware and cross check that the version updated correctly with the **Firmware version check** section found in the same website.
+1. Update the firmware
+- Connect the Simplertk2b budget board to GNSS Survey antenna using the cable given. Refer the **GPS/GNSS Antenna** section to setup the antenna in the website [User Guide: simpleRTK2B Budget](https://www.ardusimple.com/user-guide-simplertk2b-budget/#elementor-toc__heading-anchor-11).
+- Connect the the USB-B type cable to USB GPS port in the board and other end to the PC.
+- Open the U-center and connect the budget board with the suitable COM port and set the baud rate to 115200.
+- From the website [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-4) go to **firmware version check** section download the **Version 1.32**. Extract the file in separate folder.
+- And follow the **Firmware update** section to update the firmware and cross check that the version updated correctly with the **Firmware version check** section found in the same website.
 
-### Configuring the Budget board as base station
-1. Download the base station file for the FW 1.32 version
+2. Loading the configurations as base station
+- Download the base station file for the FW 1.32 version from the [link] and save it in a separate folder
+- Before loading the configuration files recheck that you are uploading the correct file. uploading an incorrect file might lead to problems
+- Load the configuration to the budget board referring the ##Load a configuration file## section in [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6)
+- And save the configuration file as per said in the website
+
+### For Simplertk2b lite board:
+
    
 ### Errors faced
 #### During the firmware update
-- Exit code 2 error when updating firmware. ![Exit Code 2](https://github.com/user-attachments/assets/265a4965-c2ab-4ddb-9ff9-58feac1f88eb)
-- Connect the USB-B type cable to USB GPS and not in USB XBEE
-- If its not cleared then try the **Updating over USB** section in the video [How to update the firmware on u-blox GNSS receivers](https://youtu.be/lqZ1wTd9gKU?si=oB4lXuNcgepNKxc9).
+1. Exit code 2 error when updating firmware. ![Exit Code 2](https://github.com/user-attachments/assets/265a4965-c2ab-4ddb-9ff9-58feac1f88eb)
+2. Connect the USB-B type cable to USB GPS port and not in USB XBEE.
+3. If its not cleared then try the **Updating over USB** section in the video [How to update the firmware on u-blox GNSS receivers](https://youtu.be/lqZ1wTd9gKU?si=oB4lXuNcgepNKxc9).
