@@ -35,7 +35,7 @@ Download u-center from their official website [U-Center](https://www.u-blox.com/
 2. Loading the configurations as base station
 - Download the base station file for the FW 1.32 version from the [link] and save it in a separate folder
 - Before loading the configuration files recheck that you are uploading the correct file. uploading an incorrect file might lead to problems
-- Load the configuration to the budget board referring the ##Load a configuration file## section in [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6)
+- Load the configuration to the budget board referring the **Load a configuration file** section in [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6)
 - And save the configuration file as per the website
    
 ### Errors faced
