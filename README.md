@@ -36,6 +36,6 @@ Download u-center from their official website [U-Center](https://www.u-blox.com/
    
 ### Errors faced
 #### During the firmware update
-_ Exit code 2 error when updating firmware. ![Exit Code 2](https://github.com/user-attachments/assets/265a4965-c2ab-4ddb-9ff9-58feac1f88eb)
+- Exit code 2 error when updating firmware. ![Exit Code 2](https://github.com/user-attachments/assets/265a4965-c2ab-4ddb-9ff9-58feac1f88eb)
 - Connect the USB-B type cable to USB GPS and not in USB XBEE
 - If its not cleared then try the **Updating over USB** section in the video [How to update the firmware on u-blox GNSS receivers](https://youtu.be/lqZ1wTd9gKU?si=oB4lXuNcgepNKxc9).
