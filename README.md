@@ -3,12 +3,14 @@
 ## The repository explains about the setting up GNSS-RTK using the Ardusimple SimpleRTK2b series of boards
 
 ### Introduction
-- We are setting up the GNSS base station at initial using the budget board and make the base station.
-  
+- We are setting up the GNSS base station at initial using the budget board.
+  [budget board](https://drive.google.com/file/d/1BCfeUO_d3VfTKhyv1hLUf-4cxIwgMuPJ/view?usp=sharing)
 - Then Connecting RFD modems through UART to send RTCM correction data to rover.
-
-The RFD modems send the data from base station to heading kit in a certain net id and air data rate
-The moving base receive the data from the base station and send to rover board along with a heading. we can get the GPS_FIX and orientation in rover board.
+  [RFD modem bundle](https://drive.google.com/file/d/13ibd_IgPIkQSamidDO5Xe9yXCAReV8D_/view?usp=sharing)
+- The RFD modems send the data from base station to heading kit in a certain net id and air data rate
+- The lite board receive the data from the base station and send to rover board along with a heading.
+  This is the [lite board](https://drive.google.com/file/d/1u88w4nWhP7Q3zKQGI1OfgxTFqHJ6ganu/view?usp=sharing) and its fixed on top of rover board makes a [heading kit](https://drive.google.com/file/d/1lNw7_xqfe9rYd88Ts9wYZaOKLzkWChKY/view?usp=sharing)
+- We can get the *GPS_FIX* and *Orientation* from the **USB GPS** port in the rover board
 
 ### Prerequirements for setting up GNSS RTK
 
@@ -32,12 +34,19 @@ The moving base receive the data from the base station and send to rover board a
 Check whether all the products available as per the product links
 
 ### Preprocess
-#### Configure the RFD Modems
-- Connect the FTDI cable to the RFD modem as per said in the below video and select the COM port and set the baud rate to 115200 to connect with the modem.
-- Refer the [Video 1](https://youtu.be/TnN78LqlCzo?si=U4I7gOx1L1zwx_7K) and [Video 2](https://youtu.be/lN28v68aL_Y?si=z5eiWCXBblHVjgfc) for configuring RFD modems.
-- I have set the RFD modems to below configurations
-- My configurations of the RFD modems ![rfd](https://github.com/user-attachments/assets/59c83083-9d58-4ba6-b050-ba52968d61f9)
 
+#### Configure the RFD Modems
+1. Connect the FTDI cable to the RFD modem for configuring RFD modems.
+2. This is the photo of connecting RFD to *FTDI cable*. The 8 wires connector in the middle is the *900ux to 8 way socket cable*. Check with the colour combination of the *FTDI cable* and the *900ux to 8 way socket cable* is as per the below photo [RFD connections](https://drive.google.com/file/d/13ibd_IgPIkQSamidDO5Xe9yXCAReV8D_/view?usp=sharing) like the left most pin in the rfd is the *GND pin* and it should connected with the black colour wire of the *FTDI cable*.
+3. I have set the RFD modems to below configurations
+4. My configurations of the RFD modems [rfd configuration](https://drive.google.com/file/d/18Ow4NDiqd2Y3rOrZe9pQzE8ZL7ej17cq/view?usp=sharing).
+5. Remove the *900ux to 8 way socket cable* from the rfd modem and connect it to the other modem and repeat the same steps from 1 to 4 to other rfd modem also.
+6. The RFD configurations of the both modems should be same to make the communication properly.
+
+#### Checking the communication has established perfectly
+1. Dump a normal *UART transmitter* code in one of the arduino and connect the *UART pins* of the RFD modem to *UART pins* of the Arduino as per below
+  
+   
 ### Setting up Simplertk2b Budget Board as a Base station:
 1. Update the firmware
 - Connect the Simplertk2b budget board to GNSS Survey antenna using the antenna cable given. Refer the **GPS/GNSS Antenna** section to setup the antenna in the website [User Guide: simpleRTK2B Budget](https://www.ardusimple.com/user-guide-simplertk2b-budget/#elementor-toc__heading-anchor-11).
