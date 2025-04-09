@@ -11,13 +11,13 @@ The moving base receive the data from the base station and send to rover board a
 ### Prerequirements for setting up GNSS RTK
 
 #### Software Requirements
-1. Download U-center 
-- Download u-center from their official website [U-Center](https://www.u-blox.com/en/product/u-center) and not U-center 2.
+1. Download U-center
+   - Download u-center from their official website [U-Center](https://www.u-blox.com/en/product/u-center) and not U-center 2.
 
 2. Donwload RFD tools software
-- Download the RFDTools-V2.67.zip file from their website [RFD tools](https://files.rfdesign.com.au/tools/)
-- extract the file in the separate foler
-- Go into the folder and select the file RFD900ToolsSetup.msi and start to install.
+   - Download the RFDTools-V2.67.zip file from their website [RFD tools](https://files.rfdesign.com.au/tools/)
+   - Extract the file in the separate foler
+   - Go into the folder and select the file RFD900ToolsSetup.msi and start to install.
 
 #### Hardware Requirements
 1. 1 x [Simplertk2b budget Board](https://www.ardusimple.com/product/calibrated-survey-gnss-multiband-antenna-ip67/)
@@ -26,7 +26,7 @@ The moving base receive the data from the base station and send to rover board a
 4. 2 x [Ground Plate for GNSS antenna](https://www.ardusimple.com/product/ground-plate-for-gnss-antenna/)
 5. 3 x USB-B type cables
 6. 1 x [RFD868ux-IND Modem Bundle](https://store.rfdesign.com.au/rfd868ux-ind-modem-bundle-hs-8517-62-00-90/)
-7. Required M-F and F-F jumper wires
+7. Enough amount of M-F and F-F jumper wires
 Check whether all the products available as per the product links
 
 ### Preprocess
@@ -36,7 +36,7 @@ Check whether all the products available as per the product links
 - I have set the RFD modems to below configurations
 - My configurations of the RFD modems ![rfd](https://github.com/user-attachments/assets/59c83083-9d58-4ba6-b050-ba52968d61f9)
 
-### For Simplertk2b Budget Board:
+### Setting up Simplertk2b Budget Board as a Base station:
 1. Update the firmware
 - Connect the Simplertk2b budget board to GNSS Survey antenna using the antenna cable given. Refer the **GPS/GNSS Antenna** section to setup the antenna in the website [User Guide: simpleRTK2B Budget](https://www.ardusimple.com/user-guide-simplertk2b-budget/#elementor-toc__heading-anchor-11).
 - Connect the the USB-B type cable to **USB GPS** port in the board and other end to the PC.
@@ -45,13 +45,28 @@ Check whether all the products available as per the product links
 - And follow the **Firmware update** section to update the firmware and cross check that the version updated correctly with the **Firmware version check** section found in the same website.
 
 2. Loading the configurations as base station
-- Download the base station file for the FW 1.32 version from the [link] and save it in a separate folder
+- Download the base station file for the FW 1.32 version from the [Base station configuration file]. Right click the file and select save as and save it in a separate folder
 - Before loading the configuration files recheck that you are uploading the correct file. uploading an incorrect file might lead to problems
 - Load the configuration to the budget board referring the **Load a configuration file** section in [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6)
-- And save the configuration file as per the website
-   
+- And save the configuration file as per the website to save the configuration to the board permenantly
+- 
+
 ### Errors faced
-- During the firmware update faced a Exit code 2 error when updating firmware. 
+- During the firmware update faced a Exit code 2 error when updating firmware.
+- 1.2 - Retry poll
+
+  2.2 - Retry poll
+
+  3.2 - Retry poll
+
+  3.2 ERROR: Version poll failed.
+
+  3.2 Firmware Update FAILED
+
+  Firmware Update Utility has unexpectedly terminated
+
+  Exit code (2)
+
 #### Solution
-- Connect the USB-B type cable to USB GPS port and not in USB XBEE.
+- Connect the USB-B type cable to **USB GPS** port and not in **USB XBEE**.
 - If its not cleared then try the **Updating over USB** section in the video [How to update the firmware on u-blox GNSS receivers](https://youtu.be/lqZ1wTd9gKU?si=oB4lXuNcgepNKxc9).
