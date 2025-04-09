@@ -44,48 +44,57 @@ Check whether all the products available as per the product links
 6. The RFD configurations of the both modems should be same to make the communication properly.
 
 #### Checking the communication has established perfectly
-1. Dump a normal *UART transmitter* code in one of the arduino and connect the *UART pins* of the RFD modem to *UART pins* of the Arduino as per below
-  
+1. The RFD pins and description of the pins are attached here [RFD pins](https://drive.google.com/file/d/1_1pGPY-Zll1vpbcY_PLTCZBHFamawTuh/view?usp=sharing) and [pin description](https://drive.google.com/file/d/1SPAdANj01Gd1S9Tws-nG_HSz-fE_Nani/view?usp=sharing)
+2. Dump a general *UART transmitter* code with a baud rate of 115200 in one of the arduino and then connect the *UART pins* of the RFD modem to *UART pins* of the Arduino as per below
+   TX pin of RFD modem -> RX pin of Arduino
+   RX pin of RFD modem -> TX pin of Arduino
+   GND pin of RFD modem -> GND pin of RFD modem
+3. Dump a general *UART receiver* code with the same baud rate in another arduino board and follow the same connections as per the step 2.
+4. Check whether data is received in the receiver arduino in serial monitor. Set the serial monitor with the same baud rate to get the data received.
    
 ### Setting up Simplertk2b Budget Board as a Base station:
 1. Update the firmware
-- Connect the Simplertk2b budget board to GNSS Survey antenna using the antenna cable given. Refer the **GPS/GNSS Antenna** section to setup the antenna in the website [User Guide: simpleRTK2B Budget](https://www.ardusimple.com/user-guide-simplertk2b-budget/#elementor-toc__heading-anchor-11).
-- Connect the the USB-B type cable to **USB GPS** port in the board and other end to the PC.
-- Open the U-center and connect the budget board with the suitable COM port and set the baud rate to 115200.
-- From the website [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-4) go to **Firmware version check** section download the **Version 1.32**. Extract the file in separate folder.
-- And follow the **Firmware update** section to update the firmware and cross check that the version updated correctly with the **Firmware version check** section found in the same website.
+   - Connect the Simplertk2b budget board to GNSS Survey antenna using the antenna cable given. Refer the **GPS/GNSS Antenna** section to setup the antenna in the website [User Guide: simpleRTK2B Budget](https://www.ardusimple.com/user-guide-simplertk2b-budget/#elementor-toc__heading-anchor-11).
+   - Connect the the USB-B type cable to **USB GPS** port in the board and other end to the PC.
+   - Open the U-center and connect the budget board with the suitable COM port and set the baud rate to 115200.
+   - From the website [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-4) go to **Firmware version check** section download the **Version 1.32**. Extract the file in separate folder.
+   - And follow the **Firmware update** section to update the firmware and cross check that the version updated correctly with the **Firmware version check** section found in the same website.
 
 2. Loading the configurations as base station
-- Download the base station file for the FW 1.32 version from the [add Base station configuration file]. Right click the file and select save as and save it in a separate folder.
-- Before loading the configuration files recheck that you are uploading the correct file. uploading an incorrect file might lead to problems
-- Load the configuration to the budget board referring the **Load a configuration file** section in [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6)
-- And save the configuration file as per the website to save the configuration in the board permenantly
-- 
+   - Download the base station file for the FW 1.32 version from the [add Base station configuration file]. Right click the file and select save as and save it in a separate folder.
+   - Before loading the configuration files recheck that you are uploading the correct file. uploading an incorrect file might lead to problems
+   - Load the configuration to the budget board referring the **Load a configuration file** section in [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6)
+   - And **Save the configuration** file as per the website to save the configuration in the board permenantly
+   - Follow the **Create a configuration file** section in the same website to update the changes you have made in the configuration of the board to an existing configuration file in the PC.
 
+3. Connecting the RFD modem to the budget board to send the data over radio
+   - Connect the **V Standard pin** of the RFD modem to **5V pin** of Arduino and **GND pin** of the Arduino to **GND pin** of the Budget Board
+   - Connect the IOREF pin of the Budget board to 3.3V OUT pin so that the uart pins work on 3.3V power
+   - Connect the TX pin of the RFD modem to the Budget board's TX2 pin and RX pin of the RFD modem to the Budget board's RX
+  
 ### Errors faced when setting up base station
-1. The base station is in 3D mode and not changed to TIME or TIME/DGNSS mode
+1. The base station is not changed to TIME or TIME/DGNSS mode
    ### Solution
    - On the top left of the U-center software select *view -> Message view*.
-   - The message tab will get opened go to *Messages -> UBX -> NAV -> PVT*
+   - The message tab will get opened.
+   - In the Messages tab go to  *UBX -> NAV -> PVT*
    - ![add photo of enabling the the column]
-
-### Debugging the 
 
 ### Errors faced in common
 1. During the firmware update faced a Exit code 2 error when updating firmware.
-   1.2 - Retry poll
+   > 1.2 - Retry poll
 
-   2.2 - Retry poll
+   > 2.2 - Retry poll
 
-   3.2 - Retry poll
+   > 3.2 - Retry poll
 
-   3.2 ERROR: Version poll failed.
+   > 3.2 ERROR: Version poll failed.
 
-   3.2 Firmware Update FAILED
+   > 3.2 Firmware Update FAILED
 
-   Firmware Update Utility has unexpectedly terminated
+   > Firmware Update Utility has unexpectedly terminated
 
-   Exit code (2)
+   > Exit code (2)
 
    Solution
    - Connect the USB-B type cable to **USB GPS** port and not in **USB XBEE**.
