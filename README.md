@@ -95,8 +95,9 @@ Check whether all the products available as per the product links
 
     Firmware Update Utility has unexpectedly terminated
 
-    Exit code (2)  
-    '''
+    Exit code (2)
+
+      '''
 
    Solution
    - Connect the USB-B type cable to **USB GPS** port and not in **USB XBEE**.
