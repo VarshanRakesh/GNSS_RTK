@@ -82,7 +82,7 @@ Check whether all the products available as per the product links
 
 ### Errors faced in common
 1. During the firmware update faced a Exit code 2 error when updating firmware.  
-    '''  
+    ``` 
     1.2 - Retry poll
    
     2.2 - Retry poll
@@ -96,8 +96,7 @@ Check whether all the products available as per the product links
     Firmware Update Utility has unexpectedly terminated
 
     Exit code (2)
-
-      '''
+    ```
 
    Solution
    - Connect the USB-B type cable to **USB GPS** port and not in **USB XBEE**.
