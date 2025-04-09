@@ -81,7 +81,7 @@ Check whether all the products available as per the product links
    - ![add photo of enabling the the column]
 
 ### Errors faced in common
-1. During the firmware update faced a Exit code 2 error when updating firmware.
+1. During the firmware update faced a Exit code 2 error when updating firmware.  
     '''
     1.2 - Retry poll
    
