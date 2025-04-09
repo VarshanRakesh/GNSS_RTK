@@ -45,12 +45,15 @@ Check whether all the products available as per the product links
 
 #### Checking the communication has established perfectly
 1. The RFD pins and description of the pins are attached here [RFD pins](https://drive.google.com/file/d/1_1pGPY-Zll1vpbcY_PLTCZBHFamawTuh/view?usp=sharing) and [pin description](https://drive.google.com/file/d/1SPAdANj01Gd1S9Tws-nG_HSz-fE_Nani/view?usp=sharing)
-2. Dump a general *UART transmitter* code with a baud rate of 115200 in one of the arduino and then connect the *UART pins* of the RFD modem to *UART pins* of the Arduino as per below
-   TX pin of RFD modem -> RX pin of Arduino
-   RX pin of RFD modem -> TX pin of Arduino
-   GND pin of RFD modem -> GND pin of RFD modem
-3. Dump a general *UART receiver* code with the same baud rate in another arduino board and follow the same connections as per the step 2.
-4. Check whether data is received in the receiver arduino in serial monitor. Set the serial monitor with the same baud rate to get the data received.
+2. Dump a general *UART transmitter* code [ask whether the available code is suitable to add here] with a baud rate of 115200 in one of the arduino  without connecting the TX pin and RX pin.
+3. After that connect the *UART pins* of the RFD modem to *UART pins* of the Arduino as per below
+4. [Ask whether the arduino to rfd photo is suitable to add here]
+   **V Standard pin** of RFD modem -> **5V pin** of Arduino
+   **TX pin** of RFD modem -> **RX pin** of Arduino
+   **RX pin** of RFD modem -> **TX pin** of Arduino
+   **GND pin** of RFD modem -> **GND pin** of RFD modem
+5. Dump a general *UART receiver* code with the same baud rate in another arduino board without connecting the TX and RX pin then follow the same connections as per the step 4.
+6. Check whether data is received in the receiver arduino in serial monitor. Set the serial monitor with the same baud rate to get the data received.
    
 ### Setting up Simplertk2b Budget Board as a Base station:
 1. Update the firmware
@@ -70,15 +73,48 @@ Check whether all the products available as per the product links
 3. Connecting the RFD modem to the budget board to send the data over radio
    - Connect the **V Standard pin** of the RFD modem to **5V pin** of Arduino and **GND pin** of the Arduino to **GND pin** of the Budget Board
    - Connect the IOREF pin of the Budget board to 3.3V OUT pin so that the uart pins work on 3.3V power
-   - Connect the TX pin of the RFD modem to the Budget board's TX2 pin and RX pin of the RFD modem to the Budget board's RX
-  
+   - Connect the **TX pin** of the RFD modem to the Budget board's **TX2 pin** and **RX pin** of the RFD modem to the Budget board's **RX2 pin**
+
+4. Configuration file not available
+   - If the configuration file has not available download the **base configuration** file from the **Examples of configuration file** section in the [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-9).
+   - On the top left of the U-center software select *view -> Message view*.
+   - The message tab will get opened.
+   - Go to *UBX->CFG-> [Continue here]
+
 ### Errors faced when setting up base station
 1. The base station is not changed to TIME or TIME/DGNSS mode
    ### Solution
    - On the top left of the U-center software select *view -> Message view*.
    - The message tab will get opened.
    - In the Messages tab go to  *UBX -> NAV -> PVT*
-   - ![add photo of enabling the the column]
+   - ![add photo of enabling the the PVT column]
+   - [Continue here]
+
+### Setting up Simplertk2b Lite Board as a moving base:
+1. Updating the firmware
+   - Before configuring the rover board at the bottom, we should configure lite board on the top.
+   - Fix the lite board on top of the rover board as per the below photo and don't fix alternately.
+   [Heading kit](https://drive.google.com/file/d/1lNw7_xqfe9rYd88Ts9wYZaOKLzkWChKY/view?usp=sharing)
+   - Connect the antenna to the SMA connector of the both top lite board and bottom rover board.
+   - Connect the the USB-B type cable to **USB XBEE** port in the board and other end to the PC.
+   - Open the U-center and connect the lite board with the suitable COM port and set the baud rate to 115200.
+   - From the website [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-4) go to **Firmware version check** section download the **Version 1.32**. Extract the file in separate folder.
+   - And follow the **Firmware update** section to update the firmware and cross check that the version updated correctly with the **Firmware version check** section found in the same website.
+  
+2. Loading the configurations as Moving base
+   - Download the moving base for the FW 1.32 version from the [add moving base file]. Right click the file and select save as and save it in a separate folder.
+   - Before loading the configuration files recheck that you are uploading the correct file. uploading an incorrect file might lead to problems
+   - To load the configuration to the lite board referring the **Load a configuration file** section in [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6)
+   - And **Save the configuration** file as per the website to save the configuration in the board permenantly
+   - Follow the **Create a configuration file** section in the same website to update the changes you have made in the configuration of the board to an existing configuration file in the PC
+
+3. Configuration file not available
+   - If the configuration file has not available download the **lite board configuration** file from the **1hz configuration** section in the [simpleRTK2B+heading hookup guide](https://www.ardusimple.com/simplertk2heading-hookup-guide/).
+   - On the top left of the U-center software select *view -> Message view*.
+   - The message tab will get opened.
+   - Go to *UBX->CFG->RATE* and change the frequency to 1 hz to 10 hz by reducing the 1000 ms to 100 ms time period.
+     [add the photo of changing frequecy].
+     [continue here]
 
 ### Errors faced in common
 1. During the firmware update faced a Exit code 2 error when updating firmware.  
