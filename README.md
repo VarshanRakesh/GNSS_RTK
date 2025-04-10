@@ -4,13 +4,18 @@
 
 ### Introduction
 - We are setting up the GNSS base station at initial using the budget board.
+
   ![simplertk2b budget board](https://github.com/user-attachments/assets/b807ac37-eae4-4cc2-8e28-fef1fd5fbf99)
 - Then Connecting RFD modem through UART to send RTCM correction data to rover.
+  
   ![RFD900ux_Bundle__73525](https://github.com/user-attachments/assets/7515ee97-a9af-4164-a102-6676c8d6849a)
 - The RFD modems send the data from base station to heading kit in a certain net id and air data rate which will be set previously.
 - The lite board receive the data from the base station and send to rover board along with a heading.
+  
   ![Simplertk2b lite board](https://github.com/user-attachments/assets/e7f0cacd-eeb9-4d08-a664-d0d6a03a9588)
-- The lite board fixed on top of rover board makes a heading kit ![Simplertk2b heading kit](https://github.com/user-attachments/assets/58be5a0c-ab2e-406e-9e24-eb5bf64ed94e)
+- The lite board fixed on top of rover board makes a heading kit
+
+  ![Simplertk2b heading kit](https://github.com/user-attachments/assets/58be5a0c-ab2e-406e-9e24-eb5bf64ed94e)
 - We can get the *GPS_FIX* and *Orientation* from the **USB GPS** port in the rover board
 
 ### Prerequirements for setting up GNSS RTK
@@ -44,22 +49,26 @@ Check whether all the products available as per the product links
 
 like the left most pin in the rfd is the *GND pin* and it should connected with the black colour wire of the *FTDI cable*.
 4. I have set the RFD modems to below configurations
-5. My configurations of the RFD modems ![My RFD configurations](https://github.com/user-attachments/assets/116e0861-fea3-46ac-902a-053385913b28)
+5. My configurations of the RFD modems 
+
+   ![My RFD configurations](https://github.com/user-attachments/assets/116e0861-fea3-46ac-902a-053385913b28)
 6. Remove the *900ux to 8 way socket cable* from the rfd modem and connect it to the another modem and repeat the same steps from 1 to 4 to other rfd modem also.
 7. The RFD configurations of the both modems should be same to make the communication properly.
 
 #### Checking the communication has established perfectly
-1. The RFD pins and description of the pins are attached here ![Rfd_pins](https://github.com/user-attachments/assets/4fcf9f51-e921-42a2-b6e9-429dfd42b9db)
- and ![Rfd_pins_description](https://github.com/user-attachments/assets/d739b9fe-79fe-4e73-87a6-c7af716d7cfc)
-2. Dump a general *UART transmitter* code [ask whether the available code is suitable to add here] with a baud rate of 115200 in one of the arduino  without connecting the TX pin and RX pin.
-3. After that connect the *UART pins* of the RFD modem to *UART pins* of the Arduino as per below
-4. ![RFD connection for configuration](https://github.com/user-attachments/assets/d7d99221-bc76-4bc2-810a-8fc7e985386f)
+1. The RFD pins and description of the pins are attached here
+   ![Rfd_pins](https://github.com/user-attachments/assets/4fcf9f51-e921-42a2-b6e9-429dfd42b9db)
+   and
+   ![Rfd_pins_description](https://github.com/user-attachments/assets/d739b9fe-79fe-4e73-87a6-c7af716d7cfc)
+3. Dump a general *UART transmitter* code [ask whether the available code is suitable to add here] with a baud rate of 115200 in one of the arduino  without connecting the TX pin and RX pin.
+4. After that connect the *UART pins* of the RFD modem to *UART pins* of the Arduino as per below
+5. ![RFD connection for configuration](https://github.com/user-attachments/assets/d7d99221-bc76-4bc2-810a-8fc7e985386f)
    **V Standard pin** of RFD modem -> **5V pin** of Arduino
    **TX pin** of RFD modem -> **RX pin** of Arduino
    **RX pin** of RFD modem -> **TX pin** of Arduino
    **GND pin** of RFD modem -> **GND pin** of RFD modem
-5. Dump a general *UART receiver* code with the same baud rate in another arduino board without connecting the TX and RX pin then follow the same connections as per the step 4.
-6. Check whether data is received in the receiver arduino in serial monitor. Set the serial monitor with the same baud rate to get the data received.
+6. Dump a general *UART receiver* code with the same baud rate in another arduino board without connecting the TX and RX pin then follow the same connections as per the step 4.
+7. Check whether data is received in the receiver arduino in serial monitor. Set the serial monitor with the same baud rate to get the data received.
    
 ### Setting up Simplertk2b Budget Board as a Base station:
 1. Update the firmware
