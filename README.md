@@ -52,6 +52,7 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
 5. My configurations of the RFD modems 
 
    ![My RFD configurations](https://github.com/user-attachments/assets/116e0861-fea3-46ac-902a-053385913b28)
+   
 6. Remove the *900ux to 8 way socket cable* from the rfd modem and connect it to the another modem and repeat the same steps from 1 to 4 to other rfd modem also.
 7. The RFD configurations of the both modems should be same to make the communication properly.
 
@@ -81,10 +82,11 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
    - Connect the Simplertk2b budget board to GNSS Survey antenna using the antenna cable given. Refer the **GPS/GNSS Antenna** section to setup the antenna in the website [User Guide: simpleRTK2B Budget](https://www.ardusimple.com/user-guide-simplertk2b-budget/#elementor-toc__heading-anchor-11).
    - Connect the the USB-B type cable to **USB GPS** port in the board and other end to the PC.
    - Open the U-center and connect the budget board with the suitable COM port and set the baud rate to 115200.
-   - From the website [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-4) go to **Firmware version check** section download the **Version 1.32**. Extract the file in separate folder.
+   - Download the firmware from the [FW Version 1.32](https://drive.google.com/file/d/1vGNgYuJrV6BfyxmUxkQAvwy2_Sb4ySH0/view?usp=sharing).
+   - Or you can find the firmware in their official website [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-4) go to **Firmware version check** section download the **Version 1.32**. Extract the file in separate folder.
    - And follow the **Firmware update** section to update the firmware and cross check that the version updated correctly with the **Firmware version check** section found in the same website.
 
-2. Loading the configurations as base station
+2. Loading the base station configurations on the budget board.
    - Download the base station file for the FW 1.32 version from the [add Base station configuration file].
    - Before loading the configuration files recheck that you are uploading the correct file. uploading an incorrect file might lead to problems
    - Load the configuration to the budget board referring the **Load a configuration file** section in [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6)
@@ -103,7 +105,7 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
    - Follow the **Create a configuration file** section in the same website to update the changes you have made in the configuration of the board to an existing configuration file in the PC.
 
 3. Configuration file not available
-   - If the configuration file has not available, download the **base configuration** file for the FW 1.32 version in [Base station configuration](https://drive.google.com/file/d/1pdjuG0cN3bo1yQ5i_762ryBFAblOVWsm/view?usp=sharing) or it's also available from the **Examples of configuration file** section in the [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-9).
+   - If the configuration file has not available, download the **base configuration** file for the FW 1.32 version in [Base station configuration](https://drive.google.com/file/d/1pdjuG0cN3bo1yQ5i_762ryBFAblOVWsm/view?usp=sharing) or it's also available from the **Examples of configuration file** section in their official website [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-9).
      ![downloading base station configuration](https://github.com/user-attachments/assets/e2c499a5-1bc1-4e96-95db-28e91d0d35c2)
    - Before loading the configuration files recheck that you are uploading the correct file. uploading an incorrect file might lead to malfunctions.
    - Load the configuration to the budget board referring the **Load a configuration file** section in [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6)
@@ -141,12 +143,12 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
    - Wait till more than 2 to 3 hours to get the TIME or TIME/DGNSS mode.
 
 4. Connecting the RFD modem to the budget board to send the data over radio
-   - Connect the **V Standard pin** of the RFD modem to **5V pin** of Arduino and **GND pin** of the Arduino to **GND pin** of the Budget Board
-   - Connect the IOREF pin of the Budget board to 3.3V OUT pin so that the uart pins work on 3.3V power
+   - Connect the **V Standard pin** of the RFD modem to **5V_OUT** pin of Budget board and **GND pin** of the RFD modem to **GND pin** of the Budget Board
+   - Connect the IOREF pin of the Budget board to **3V3_OUT** pin so that the uart pins work on 3.3V power
    - Connect the **TX pin** of the RFD modem to the Budget board's **TX2 pin** and **RX pin** of the RFD modem to the Budget board's **RX2 pin**
    - The same is done below for the reference
-    
-
+     
+     [Attach the connection of base station to a radio as a photo]
    
 ### Errors faced when setting up base station
 1. If the base station is not changed to TIME or TIME/DGNSS mode
@@ -157,36 +159,91 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
    - ![add photo of enabling the the PVT column]
    - In right side of the app the **fix type** column changed to TIME or TIME/DGNSS mode.
      
-2. Even if the Base station is in TIME or TIME/DGNSS mode the rover doesn't get fix mode
-   ### Debugging
-   - Connect the 
-     
-### Setting up Simplertk2b Lite Board as a moving base:
+### Setting up Simplertk2b Lite Board as a Heading kit moving base:
 1. Updating the firmware
    - Before configuring the rover board at the bottom, we should configure lite board on the top.
    - Fix the lite board on top of the rover board as per the below photo.
-   [Heading kit](https://drive.google.com/file/d/1lNw7_xqfe9rYd88Ts9wYZaOKLzkWChKY/view?usp=sharing)
+     
+     ![Simplertk2b heading kit](https://github.com/user-attachments/assets/96cdb716-ac18-4500-a675-4b64526b06ba)
+     
    - Connect the antenna to the SMA connector of the both top lite board and bottom rover board.
    - Connect the the USB-B type cable to **USB XBEE** port in the board and other end to the PC.
    - Open the U-center and connect the lite board with the suitable COM port and set the baud rate to 115200.
-   - From the website [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-4) go to **Firmware version check** section download the **Version 1.32**. Extract the file in separate folder.
+   - Download the firmware from the [FW Version 1.32](https://drive.google.com/file/d/1vGNgYuJrV6BfyxmUxkQAvwy2_Sb4ySH0/view?usp=sharing).
+   - Or the firmware can also found in the website [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-4) go to **Firmware version check** section download the **Version 1.32**. Extract the file in separate folder.
    - And follow the **Firmware update** section to update the firmware and cross check that the version updated correctly with the **Firmware version check** section found in the same website.
   
-2. Loading the configurations as Moving base
-   - Download the moving base for the FW 1.32 version from the [add moving base file]. Right click the file and select save as and save it in a separate folder.
+2. Loading the configurations as Moving base of the heading kit
+   - Download the moving base for the FW 1.32 version from the [add moving base file].
    - Before loading the configuration files recheck that you are uploading the correct file. uploading an incorrect file might lead to problems
-   - To load the configuration to the lite board referring the **Load a configuration file** section in [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6)
-   - And **Save the configuration** file as per the website to save the configuration in the board permenantly
-   - Follow the **Create a configuration file** section in the same website to update the changes you have made in the configuration of the board to an existing configuration file in the PC
+   - To load the configuration to the lite board refer the **Load a configuration file** section in [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6)
+   - And follow **Save the configuration** section in the [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6) to store the configuration to the board permenantly.
+   - Follow the **Create a configuration file** section in the same website to update the changes you have made in the configuration of the board to an existing configuration file in the PC.
 
 3. Configuration file not available
-   - If the configuration file has not available download the **lite board configuration** file from the **1hz configuration** section in the [simpleRTK2B+heading hookup guide](https://www.ardusimple.com/simplertk2heading-hookup-guide/).
+   - If the configuration file has not available download the **lite board configuration** file in the [moving base configuration](https://drive.google.com/file/d/17MkmwKJANRGKc4dVwS4mvsxehgPvbiTg/view?usp=sharing).
+   - Or you can download the same from the **For 1hz** section, the file besides **On the lite board** in the [simpleRTK2B+heading hookup guide](https://www.ardusimple.com/simplertk2heading-hookup-guide/). Right click on the file and select **save it as** option to save in the browsed folder.
    - On the top left of the U-center software select *view -> Message view*.
    - The message tab will get opened.
-   - Go to *UBX->CFG->RATE* and change the frequency to 1 hz to 10 hz by reducing the 1000 ms to 100 ms time period.
+   - Go to *UBX->CFG->RATE* and change the frequency from 1 hz to 10 hz by reducing the 1000 ms to 100 ms time period.
      [add the photo of changing frequecy].
-     [continue here]
+   - Click the **send** button.
+   - And follow **Save the configuration** section in the [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6) to store the configuration to the board permenantly.
+   - Follow the **Create a configuration file** section in the same website to update the changes you have made in the configuration of the board to an existing configuration file in the PC.
 
+### Errors faced when setting up lite board in heading kit as moving base
+1. This is the middle of the process so we won't identify any errors here.
+   
+### Setting up Simplertk2b Budget Board as a Heading kit Rover board:
+1. Updating the firmware
+   - After configuring the lite board on the top, remove the lite board from the top of the rover board.
+   - Disconnect the USB-B type cable from **USB XBEE** port and connect it to the **USB GPS** port on the rover board at the bottom.
+
+     [Attach the rover board with only the patch antenna].
+     
+   - Open the U-center and connect the rover board with the suitable COM port and set the baud rate to 115200.
+   - Download the firmware from the [FW Version 1.32](https://drive.google.com/file/d/1vGNgYuJrV6BfyxmUxkQAvwy2_Sb4ySH0/view?usp=sharing).
+   - Or firmware can also found in [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-4) go to **Firmware version check** section download the **Version 1.32**. Extract the file in separate folder.
+   - And follow the **Firmware update** section to update the firmware and cross check that the version updated correctly with the **Firmware version check** section found in the same website.
+  
+2. Loading the configurations as rover of the heading kit
+   - Download the rover configuration file for the FW 1.32 version from the [add rover file].
+   - Before loading the configuration files recheck that you are uploading the correct file. uploading an incorrect file might lead to problems
+   - To load the configuration to the rover board refer the **Load a configuration file** section in [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6)
+   - And follow **Save the configuration** section in the [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6) to store the configuration to the board permenantly.
+   - Follow the **Create a configuration file** section in the same website to update the changes you have made in the configuration of the board to an existing configuration file in the PC.
+
+3. Configuration file not available
+   - If the configuration file has not available, download the **rover board configuration** file in the [Rover board configuration](https://drive.google.com/file/d/1-d5m3nyiv6EF2fXdvWtEuJJczOBV59ue/view?usp=sharing)
+   -Or you can download the same from the **For 1hz** section, the file besides **On the budget board** in the [simpleRTK2B+heading hookup guide](https://www.ardusimple.com/simplertk2heading-hookup-guide/). Right click on the file and select **save it as** option to save in the browsed folder.
+   - On the top left of the U-center software select *view -> Message view*.
+   - The message tab will get opened.
+   - Go to *UBX->CFG->RATE* and change the frequency from 1 hz to 10 hz by reducing the 1000 ms to 100 ms time period.
+     [add the photo of changing frequecy].
+   - Click the **send** button.
+   - And follow **Save the configuration** section in the [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6) to store the configuration to the board permenantly.
+   - Follow the **Create a configuration file** section in the same website to update the changes you have made in the configuration of the board to an existing configuration file in the PC.
+
+4. Connecting the RFD modem to the budget board to send the data over radio
+   - Connect the **V Standard pin** of the RFD modem to **5V_OUT** pin of Budget board and **GND pin** of the RFD modem to **GND pin** of the Budget Board
+   - Connect the IOREF pin of the Budget board to **3V3_OUT** pin so that the uart pins work on 3.3V power
+   - Connect the **TX pin** of the RFD modem to the Budget board's **TX2 pin** and **RX pin** of the RFD modem to the Budget board's **RX2 pin**
+   - The same is done below for the reference
+     
+     [Attach the connection of base station to a radio as a photo]
+     
+### Errors faced when setting up heading kit
+1. If the no rtk led blink on top of the lite board
+   ### Solution
+   - Once the one of the board is configured disconnect the board and then connect and try to configure the other board
+   - Configure the lite board first and then the rover board of the heading kit.
+   - Confirm the configuration file you have loading is related to the board you're using. And don't mistakenly load the rover's configuration file to the lite board and vice versa.
+   - Satellites view might be the cause of this problem.
+   - Check whether the wires are working properly.
+2. If the the 3D/FLOAT or 3D/DGNSS/FLOAT is in the FIX mode of the right side of the U-center app and no 3D/FIXED or 3D/DGNSS/FIXED appeared
+   ### Solution
+   - Wait for 5 minutes to get a 3D/FIXED or 3D/DGNSS/FIXED
+     
 ### Errors faced in common
 1. During the firmware update faced a Exit code 2 error when updating firmware.  
     ``` 
