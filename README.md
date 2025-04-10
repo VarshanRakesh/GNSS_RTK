@@ -28,7 +28,7 @@
 2. 1 x [GNSS Survey Antenna and its cable](https://www.ardusimple.com/product/calibrated-survey-gnss-multiband-antenna-ip67/)
 3. 1 x [Simplertk2b heading Kit](https://www.ardusimple.com/product/simplertk2b-heading-basic-starter-kit-ip67/)
 4. 2 x [Ground Plate for GNSS antenna](https://www.ardusimple.com/product/ground-plate-for-gnss-antenna/)
-5. 3 x USB-B type cables
+5. 2 x USB-B type cables
 6. 1 x [RFD868ux-IND Modem Bundle](https://store.rfdesign.com.au/rfd868ux-ind-modem-bundle-hs-8517-62-00-90/)
 7. Enough amount of M-F and F-F jumper wires
 Check whether all the products available as per the product links
@@ -67,29 +67,71 @@ Check whether all the products available as per the product links
    - Download the base station file for the FW 1.32 version from the [add Base station configuration file]. Right click the file and select save as and save it in a separate folder.
    - Before loading the configuration files recheck that you are uploading the correct file. uploading an incorrect file might lead to problems
    - Load the configuration to the budget board referring the **Load a configuration file** section in [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6)
-   - And **Save the configuration** file as per the website to save the configuration in the board permenantly
+   - Go to View > Messages View > UBX-CFG-TMODE3 and select Mode 1 – Suvey-in
+   - Set Minimum Observation Time and Required Position Accuracy, default values are a good start.
+   - I have set my observation time to 0 seconds and 0.5m accuracy.
+   - Be careful to don’t put a required accuracy too low because you may never reach it.
+   - Click Send button.
+   - Go to View > Messages View > UBX-NAV-SVIN check whether the **mean position valid** parameter shows yes.
+   - Then note the ECEF X, ECEF Y, ECEF Z values to the notepad.
+   - Now Go to View > Messages View > UBX-CFG-TMODE3 and select Mode 2 - Fixed mode.
+   - Copy and paste the ECEF X, ECEF Y, ECEF Z values to X, Y, Z respectively and set the accuracy to 0.5m.
+   - Click Send button.
+   - And follow **Save the configuration** section in the [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6) to store the configuration to the board permenantly.
    - Follow the **Create a configuration file** section in the same website to update the changes you have made in the configuration of the board to an existing configuration file in the PC.
 
-3. Connecting the RFD modem to the budget board to send the data over radio
+3. Configuration file not available
+   - If the configuration file has not available, download the **base configuration** file for the FW 1.32 version from the **Examples of configuration file** section in the [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-9).
+   - To download, don't select the link. Right click the file and select save as and save it in a separate folder.
+   - Before loading the configuration files recheck that you are uploading the correct file. uploading an incorrect file might lead to malfunctions.
+   - Load the configuration to the budget board referring the **Load a configuration file** section in [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6)
+   - On the top left of the U-center software select *view -> Message view*.
+   - The message tab will get opened.
+   - Go to View > Messages View > UBX-CFG-TMODE3 and select Mode 1 – Suvey-in
+   - Set Minimum Observation Time and Required Position Accuracy, default values are a good start.
+   - I have set my observation time to 0 seconds and 0.5m accuracy. 
+   - Be careful to don’t put a required accuracy too low because you may never reach it.
+   - Click Send button.
+   - Go to View > Messages View > UBX-NAV-SVIN check whether the **mean position valid** parameter shows yes.
+   - Then note the ECEF X, ECEF Y, ECEF Z values to the notepad.
+   - Now Go to View > Messages View > UBX-CFG-TMODE3 and select Mode 2 - Fixed mode.
+   - Copy and paste the ECEF X, ECEF Y, ECEF Z values to X, Y, Z boxes respectively and set the accuracy to 0.5m.
+   - Click Send button.
+   - Now go to View > Messages View > UBX-CFG-MSG and select the **F5-05 RTCM 3.3 1005** and ensure its only enabled in **UART 2** checkbox.
+   - First to disabling the MSM4 messages and then enable MSM7 messages to connect with the rover which have MSM7 messages
+   - Then select the F5-4A RTCM 3.3 1074 and ensure its only disabled in UART 2 and USB checkbox.
+   - Select the F5-4A RTCM 3.3 1074 and disable in all checkboxes including UART 2 and USB checkbox and click send.
+   - Select the F5-54 RTCM 3.3 1084 and disable in all checkboxes including UART 2 and USB checkbox and click send.
+   - Select the F5-5E RTCM 3.3 1094 and disable in all checkboxes including UART 2 and USB checkbox and click send.
+   - Now enabling the MSM7 messages.
+   - Select the F5-4D RTCM 3.3 1077 and ensure its only enabled in UART 2 and click send.
+   - Select the F5-57 RTCM 3.3 1087 and ensure its only enabled in UART 2 and click send.
+   - Select the F5-61 RTCM 3.3 1097 and ensure its only enabled in UART 2 and click send.
+   - Check whether the F5-E6 RTCM 3.3 1230 is only enabled in UART 2 and click send.
+   - Now go to View > Messages View > UBX-CFG-PRT and change the target parameter to 2 - UART2.
+   - Change the Protocol in parameter to none.
+   - Change the Protocol out parameter to 5 - RTCM3.
+   - Set the baud rate to 115200 and then click send
+   - Now go to View > Messages View > UBX-CFG-RATE and let the time source to be in 1 - GPS time.
+   - Set the measurement period to 100 [ms] to make the frequency to 10 hz and click send.
+   - On left top of the U-center app select the Receiver > Action > Save config to store the changes made in the board permenantly to the board.
+   - Wait till more than 2 to 3 hours to get the TIME or TIME/DGNSS mode.
+
+4. Connecting the RFD modem to the budget board to send the data over radio
    - Connect the **V Standard pin** of the RFD modem to **5V pin** of Arduino and **GND pin** of the Arduino to **GND pin** of the Budget Board
    - Connect the IOREF pin of the Budget board to 3.3V OUT pin so that the uart pins work on 3.3V power
    - Connect the **TX pin** of the RFD modem to the Budget board's **TX2 pin** and **RX pin** of the RFD modem to the Budget board's **RX2 pin**
-
-4. Configuration file not available
-   - If the configuration file has not available download the **base configuration** file from the **Examples of configuration file** section in the [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-9).
-   - On the top left of the U-center software select *view -> Message view*.
-   - The message tab will get opened.
-   - Go to *UBX->CFG-> [Continue here]
-
+   - [Attach the photo which is done in paint]
+   
 ### Errors faced when setting up base station
-1. The base station is not changed to TIME or TIME/DGNSS mode
+1. If the base station is not changed to TIME or TIME/DGNSS mode
    ### Solution
    - On the top left of the U-center software select *view -> Message view*.
    - The message tab will get opened.
-   - In the Messages tab go to  *UBX -> NAV -> PVT*
+   - In the Messages tab go to  *UBX -> NAV -> PVT* and select the column and enable it
    - ![add photo of enabling the the PVT column]
-   - [Continue here]
-
+   - In right side of the app the fix type changed to TIME or TIME/DGNSS mode.
+     
 ### Setting up Simplertk2b Lite Board as a moving base:
 1. Updating the firmware
    - Before configuring the rover board at the bottom, we should configure lite board on the top.
