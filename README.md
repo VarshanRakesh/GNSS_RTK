@@ -4,12 +4,13 @@
 
 ### Introduction
 - We are setting up the GNSS base station at initial using the budget board.
-  [budget board](https://drive.google.com/file/d/1BCfeUO_d3VfTKhyv1hLUf-4cxIwgMuPJ/view?usp=sharing)
-- Then Connecting RFD modems through UART to send RTCM correction data to rover.
-  [RFD modem bundle](https://drive.google.com/file/d/13ibd_IgPIkQSamidDO5Xe9yXCAReV8D_/view?usp=sharing)
-- The RFD modems send the data from base station to heading kit in a certain net id and air data rate
+  ![simplertk2b budget board](https://github.com/user-attachments/assets/b807ac37-eae4-4cc2-8e28-fef1fd5fbf99)
+- Then Connecting RFD modem through UART to send RTCM correction data to rover.
+  ![RFD900ux_Bundle__73525](https://github.com/user-attachments/assets/7515ee97-a9af-4164-a102-6676c8d6849a)
+- The RFD modems send the data from base station to heading kit in a certain net id and air data rate which will be set previously.
 - The lite board receive the data from the base station and send to rover board along with a heading.
-  This is the [lite board](https://drive.google.com/file/d/1u88w4nWhP7Q3zKQGI1OfgxTFqHJ6ganu/view?usp=sharing) and its fixed on top of rover board makes a [heading kit](https://drive.google.com/file/d/1lNw7_xqfe9rYd88Ts9wYZaOKLzkWChKY/view?usp=sharing)
+  ![Simplertk2b lite board](https://github.com/user-attachments/assets/e7f0cacd-eeb9-4d08-a664-d0d6a03a9588)
+- The lite board fixed on top of rover board makes a heading kit ![Simplertk2b heading kit](https://github.com/user-attachments/assets/58be5a0c-ab2e-406e-9e24-eb5bf64ed94e)
 - We can get the *GPS_FIX* and *Orientation* from the **USB GPS** port in the rover board
 
 ### Prerequirements for setting up GNSS RTK
@@ -37,17 +38,19 @@ Check whether all the products available as per the product links
 
 #### Configure the RFD Modems
 1. Connect the FTDI cable to the RFD modem for configuring RFD modems.
-2. This is the photo of connecting RFD to *FTDI cable*. The 8 wires connector in the middle is the *900ux to 8 way socket cable*. Check with the colour combination of the *FTDI cable* and the *900ux to 8 way socket cable* is as per the below photo [RFD connections](https://drive.google.com/file/d/13ibd_IgPIkQSamidDO5Xe9yXCAReV8D_/view?usp=sharing) like the left most pin in the rfd is the *GND pin* and it should connected with the black colour wire of the *FTDI cable*.
+2. This is the photo of connecting RFD to *FTDI cable*. The 8 wires connector in the middle is the *900ux to 8 way socket cable*. Check with the colour combination of the *FTDI cable* and the *900ux to 8 way socket cable* is as per the photo ![RFD connection for configuration](https://github.com/user-attachments/assets/90f7dc57-12ab-4e51-95fe-c59e86349595)
+ like the left most pin in the rfd is the *GND pin* and it should connected with the black colour wire of the *FTDI cable*.
 3. I have set the RFD modems to below configurations
-4. My configurations of the RFD modems [rfd configuration](https://drive.google.com/file/d/18Ow4NDiqd2Y3rOrZe9pQzE8ZL7ej17cq/view?usp=sharing).
-5. Remove the *900ux to 8 way socket cable* from the rfd modem and connect it to the other modem and repeat the same steps from 1 to 4 to other rfd modem also.
+4. My configurations of the RFD modems ![My RFD configurations](https://github.com/user-attachments/assets/116e0861-fea3-46ac-902a-053385913b28)
+5. Remove the *900ux to 8 way socket cable* from the rfd modem and connect it to the another modem and repeat the same steps from 1 to 4 to other rfd modem also.
 6. The RFD configurations of the both modems should be same to make the communication properly.
 
 #### Checking the communication has established perfectly
-1. The RFD pins and description of the pins are attached here [RFD pins](https://drive.google.com/file/d/1_1pGPY-Zll1vpbcY_PLTCZBHFamawTuh/view?usp=sharing) and [pin description](https://drive.google.com/file/d/1SPAdANj01Gd1S9Tws-nG_HSz-fE_Nani/view?usp=sharing)
+1. The RFD pins and description of the pins are attached here ![Rfd_pins](https://github.com/user-attachments/assets/4fcf9f51-e921-42a2-b6e9-429dfd42b9db)
+ and ![Rfd_pins_description](https://github.com/user-attachments/assets/d739b9fe-79fe-4e73-87a6-c7af716d7cfc)
 2. Dump a general *UART transmitter* code [ask whether the available code is suitable to add here] with a baud rate of 115200 in one of the arduino  without connecting the TX pin and RX pin.
 3. After that connect the *UART pins* of the RFD modem to *UART pins* of the Arduino as per below
-4. [Ask whether the arduino to rfd photo is suitable to add here]
+4. ![RFD connection for configuration](https://github.com/user-attachments/assets/d7d99221-bc76-4bc2-810a-8fc7e985386f)
    **V Standard pin** of RFD modem -> **5V pin** of Arduino
    **TX pin** of RFD modem -> **RX pin** of Arduino
    **RX pin** of RFD modem -> **TX pin** of Arduino
@@ -64,10 +67,11 @@ Check whether all the products available as per the product links
    - And follow the **Firmware update** section to update the firmware and cross check that the version updated correctly with the **Firmware version check** section found in the same website.
 
 2. Loading the configurations as base station
-   - Download the base station file for the FW 1.32 version from the [add Base station configuration file]. Right click the file and select save as and save it in a separate folder.
+   - Download the base station file for the FW 1.32 version from the [add Base station configuration file].
    - Before loading the configuration files recheck that you are uploading the correct file. uploading an incorrect file might lead to problems
    - Load the configuration to the budget board referring the **Load a configuration file** section in [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6)
-   - Go to View > Messages View > UBX-CFG-TMODE3 and select Mode 1 – Suvey-in
+   - [add photos for this process]
+   - Go to View > Messages View > UBX-CFG-TMODE3 and select Mode 1 – Survey-in
    - Set Minimum Observation Time and Required Position Accuracy, default values are a good start.
    - I have set my observation time to 0 seconds and 0.5m accuracy.
    - Be careful to don’t put a required accuracy too low because you may never reach it.
@@ -81,12 +85,13 @@ Check whether all the products available as per the product links
    - Follow the **Create a configuration file** section in the same website to update the changes you have made in the configuration of the board to an existing configuration file in the PC.
 
 3. Configuration file not available
-   - If the configuration file has not available, download the **base configuration** file for the FW 1.32 version from the **Examples of configuration file** section in the [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-9).
-   - To download, don't select the link. Right click the file and select save as and save it in a separate folder.
+   - If the configuration file has not available, download the **base configuration** file for the FW 1.32 version in [Base station configuration](https://drive.google.com/file/d/1pdjuG0cN3bo1yQ5i_762ryBFAblOVWsm/view?usp=sharing) or it's also available from the **Examples of configuration file** section in the [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-9).
+     ![downloading base station configuration](https://github.com/user-attachments/assets/e2c499a5-1bc1-4e96-95db-28e91d0d35c2)
    - Before loading the configuration files recheck that you are uploading the correct file. uploading an incorrect file might lead to malfunctions.
    - Load the configuration to the budget board referring the **Load a configuration file** section in [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6)
    - On the top left of the U-center software select *view -> Message view*.
    - The message tab will get opened.
+   - [add photos for this process]
    - Go to View > Messages View > UBX-CFG-TMODE3 and select Mode 1 – Suvey-in
    - Set Minimum Observation Time and Required Position Accuracy, default values are a good start.
    - I have set my observation time to 0 seconds and 0.5m accuracy. 
@@ -107,7 +112,7 @@ Check whether all the products available as per the product links
    - Select the F5-4D RTCM 3.3 1077 and ensure its only enabled in UART 2 and click send.
    - Select the F5-57 RTCM 3.3 1087 and ensure its only enabled in UART 2 and click send.
    - Select the F5-61 RTCM 3.3 1097 and ensure its only enabled in UART 2 and click send.
-   - Check whether the F5-E6 RTCM 3.3 1230 is only enabled in UART 2 and click send.
+   - Select the F5-E6 RTCM 3.3 1230 is only enabled in UART 2 and click send.
    - Now go to View > Messages View > UBX-CFG-PRT and change the target parameter to 2 - UART2.
    - Change the Protocol in parameter to none.
    - Change the Protocol out parameter to 5 - RTCM3.
@@ -130,12 +135,16 @@ Check whether all the products available as per the product links
    - The message tab will get opened.
    - In the Messages tab go to  *UBX -> NAV -> PVT* and select the column and enable it
    - ![add photo of enabling the the PVT column]
-   - In right side of the app the fix type changed to TIME or TIME/DGNSS mode.
+   - In right side of the app the **fix type** column changed to TIME or TIME/DGNSS mode.
+     
+2. Even if the Base station is in TIME or TIME/DGNSS mode the rover doesn't get fix mode
+   ### Debugging
+   - Connect the 
      
 ### Setting up Simplertk2b Lite Board as a moving base:
 1. Updating the firmware
    - Before configuring the rover board at the bottom, we should configure lite board on the top.
-   - Fix the lite board on top of the rover board as per the below photo and don't fix alternately.
+   - Fix the lite board on top of the rover board as per the below photo.
    [Heading kit](https://drive.google.com/file/d/1lNw7_xqfe9rYd88Ts9wYZaOKLzkWChKY/view?usp=sharing)
    - Connect the antenna to the SMA connector of the both top lite board and bottom rover board.
    - Connect the the USB-B type cable to **USB XBEE** port in the board and other end to the PC.
