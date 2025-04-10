@@ -57,17 +57,23 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
 
 #### Checking the communication has established perfectly
 1. The RFD pins and description of the pins are attached here
+
    ![Rfd_pins](https://github.com/user-attachments/assets/4fcf9f51-e921-42a2-b6e9-429dfd42b9db)
+   
    and
+   
    ![Rfd_pins_description](https://github.com/user-attachments/assets/d739b9fe-79fe-4e73-87a6-c7af716d7cfc)
+   
 3. Dump a general *UART transmitter* code [ask whether the available code is suitable to add here] with a baud rate of 115200 in one of the arduino  without connecting the TX pin and RX pin.
 4. After that connect the *UART pins* of the RFD modem to *UART pins* of the Arduino as per below
+   
 5. ![RFD connection for configuration](https://github.com/user-attachments/assets/d7d99221-bc76-4bc2-810a-8fc7e985386f)
+   
    **V Standard pin** of RFD modem -> **5V pin** of Arduino
    **TX pin** of RFD modem -> **RX pin** of Arduino
    **RX pin** of RFD modem -> **TX pin** of Arduino
    **GND pin** of RFD modem -> **GND pin** of RFD modem
-6. Dump a general *UART receiver* code with the same baud rate in another arduino board without connecting the TX and RX pin then follow the same connections as per the step 4.
+6. Dump a general *UART receiver* code with the same baud rate in another arduino board without connecting the TX and RX pin then follow the same connections as per the step 5.
 7. Check whether data is received in the receiver arduino in serial monitor. Set the serial monitor with the same baud rate to get the data received.
    
 ### Setting up Simplertk2b Budget Board as a Base station:
@@ -138,7 +144,9 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
    - Connect the **V Standard pin** of the RFD modem to **5V pin** of Arduino and **GND pin** of the Arduino to **GND pin** of the Budget Board
    - Connect the IOREF pin of the Budget board to 3.3V OUT pin so that the uart pins work on 3.3V power
    - Connect the **TX pin** of the RFD modem to the Budget board's **TX2 pin** and **RX pin** of the RFD modem to the Budget board's **RX2 pin**
-   - [Attach the photo which is done in paint]
+   - The same is done below for the reference
+     ![rfd_debugging](https://github.com/user-attachments/assets/5d57f71f-6e4c-492a-b4c0-3e1c90c5b6d5)
+
    
 ### Errors faced when setting up base station
 1. If the base station is not changed to TIME or TIME/DGNSS mode
