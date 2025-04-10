@@ -73,7 +73,7 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
    **TX pin** of RFD modem -> **RX pin** of Arduino
    **RX pin** of RFD modem -> **TX pin** of Arduino
    **GND pin** of RFD modem -> **GND pin** of RFD modem
-6. Dump a general *UART receiver* code with the same baud rate in another arduino board without connecting the TX and RX pin then follow the same connections as per the step 5.
+6. Dump a general *UART receiver* code with the same baud rate in another arduino board without connecting the TX and RX pin then follow the same connections as per the step 4 and 5.
 7. Check whether data is received in the receiver arduino in serial monitor. Set the serial monitor with the same baud rate to get the data received.
    
 ### Setting up Simplertk2b Budget Board as a Base station:
