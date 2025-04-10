@@ -67,7 +67,7 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
 3. Dump a general *UART transmitter* code [ask whether the available code is suitable to add here] with a baud rate of 115200 in one of the arduino  without connecting the TX pin and RX pin.
 4. After that connect the *UART pins* of the RFD modem to *UART pins* of the Arduino as per below
    
-5. ![RFD connection for configuration](https://github.com/user-attachments/assets/d7d99221-bc76-4bc2-810a-8fc7e985386f)
+5. ![rfd_debugging](https://github.com/user-attachments/assets/e1702fe5-083a-4902-823a-82548155d44a)
    
    **V Standard pin** of RFD modem -> **5V pin** of Arduino
    **TX pin** of RFD modem -> **RX pin** of Arduino
@@ -145,7 +145,7 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
    - Connect the IOREF pin of the Budget board to 3.3V OUT pin so that the uart pins work on 3.3V power
    - Connect the **TX pin** of the RFD modem to the Budget board's **TX2 pin** and **RX pin** of the RFD modem to the Budget board's **RX2 pin**
    - The same is done below for the reference
-     ![rfd_debugging](https://github.com/user-attachments/assets/5d57f71f-6e4c-492a-b4c0-3e1c90c5b6d5)
+    
 
    
 ### Errors faced when setting up base station
