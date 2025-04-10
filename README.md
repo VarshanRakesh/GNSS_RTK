@@ -156,7 +156,7 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
    - On the top left of the U-center software select *view -> Message view*.
    - The message tab will get opened.
    - In the Messages tab go to  *UBX -> NAV -> PVT* and select the column and enable it
-   - ![add photo of enabling the the PVT column]
+   - [add photo of enabling the the PVT column]
    - In right side of the app the **fix type** column changed to TIME or TIME/DGNSS mode.
      
 ### Setting up Simplertk2b Lite Board as a Heading kit moving base:
@@ -207,7 +207,7 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
    - And follow the **Firmware update** section to update the firmware and cross check that the version updated correctly with the **Firmware version check** section found in the same website.
   
 2. Loading the configurations as rover of the heading kit
-   - Download the rover configuration file for the FW 1.32 version from the [add rover file].
+   - Download the rover configuration file for the FW 1.32 version from the [add rover configuration file].
    - Before loading the configuration files recheck that you are uploading the correct file. uploading an incorrect file might lead to problems
    - To load the configuration to the rover board refer the **Load a configuration file** section in [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6)
    - And follow **Save the configuration** section in the [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6) to store the configuration to the board permenantly.
@@ -224,13 +224,13 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
    - And follow **Save the configuration** section in the [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6) to store the configuration to the board permenantly.
    - Follow the **Create a configuration file** section in the same website to update the changes you have made in the configuration of the board to an existing configuration file in the PC.
 
-4. Connecting the RFD modem to the budget board to send the data over radio
+4. Connecting the RFD modem to the heading kit to receive the data over radio
    - Connect the **V Standard pin** of the RFD modem to **5V_OUT** pin of Budget board and **GND pin** of the RFD modem to **GND pin** of the Budget Board
    - Connect the IOREF pin of the Budget board to **3V3_OUT** pin so that the uart pins work on 3.3V power
-   - Connect the **TX pin** of the RFD modem to the Budget board's **TX2 pin** and **RX pin** of the RFD modem to the Budget board's **RX2 pin**
+   - Connect the **TX pin** of the RFD modem to the lite board's **RX pin** and **RX pin** of the RFD modem to the Budget board's **TX pin**
    - The same is done below for the reference
      
-     [Attach the connection of base station to a radio as a photo]
+     [Attach the connection of rover to a radio as a photo]
      
 ### Errors faced when setting up heading kit
 1. If the no rtk led blink on top of the lite board
@@ -242,8 +242,18 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
    - Check whether the wires are working properly.
 2. If the the 3D/FLOAT or 3D/DGNSS/FLOAT is in the FIX mode of the right side of the U-center app and no 3D/FIXED or 3D/DGNSS/FIXED appeared
    ### Solution
-   - Wait for 5 minutes to get a 3D/FIXED or 3D/DGNSS/FIXED
+   - The U-center software shows 3D/FLOAT or 3D/DGNSS/FLOAT and the **no_rtk** led blinks. Wait for a 5 mins to the fix mode changed from 3D/FLOAT or 3D/DGNSS/FLOAT to 3D/FIXED or 3D/DGNSS/FIXED and the **no_rtk** led stops blinking. 
+   - if the **no_rtk led** is glows solid, Check whether the TX of the RFD modem is connected to the TX2 of the budget board and RX of the RFD modem is connected to the RX2 of the budget board
+   - verify whether the **IOREF** pin is connected to the **3V3_OUT** pin in both the base station and heading kit.
+   - And check all of the connections done as per the photos and suitable configurations is loaded to the suitable boards.
+   - If no_rtk led glows solid and shows 3D/DGNSS/FLOAT fix mode of the U-center software even after all these steps follow the debugging steps to check data is sending from the base station. 
      
+### Debugging the base station to check how the data is getting out
+1. if the base station changed to TIME or TIME/DGNSS. Then the base station is sending the data in one of the ports of the budget board.
+2. To check this, connect the Budget board to the RFD modem by following the below photo
+   [Attach the connection of base station to a ftdi cable and to a pc].
+3. Open the Serial monitor and set the baud rate to 115200 to check whether the data is received in the serial monitor.
+
 ### Errors faced in common
 1. During the firmware update faced a Exit code 2 error when updating firmware.  
     ``` 
@@ -265,3 +275,12 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
    Solution
    - Connect the USB-B type cable to **USB GPS** port and not in **USB XBEE**.
    - If its not cleared then try the **Updating over USB** section in the video [How to update the firmware on u-blox GNSS receivers](https://youtu.be/lqZ1wTd9gKU?si=oB4lXuNcgepNKxc9).
+  
+2. During the loading configuration facing the timeout error
+   ![timeout error](https://github.com/user-attachments/assets/d6c4c091-3a6d-4895-8316-bf5accd167a2)
+   Solution
+   - Connect the USB-B type cable to **USB GPS** port and not in **USB XBEE**.
+   - Try the following steps one by one two times.
+   - Load the configuration with different baud rate.
+   - disconnect the com port in the software before removing the the cable.
+   - Try it with different com port with and try again with the different baud rate.
