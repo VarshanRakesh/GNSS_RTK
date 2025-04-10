@@ -38,8 +38,9 @@ Check whether all the products available as per the product links
 
 #### Configure the RFD Modems
 1. Connect the FTDI cable to the RFD modem for configuring RFD modems.
-2. This is the photo of connecting RFD to *FTDI cable*. The 8 wires connector in the middle is the *900ux to 8 way socket cable*. Check with the colour combination of the *FTDI cable* and the *900ux to 8 way socket cable* is as per the photo ![RFD connection for configuration](https://github.com/user-attachments/assets/90f7dc57-12ab-4e51-95fe-c59e86349595)
- like the left most pin in the rfd is the *GND pin* and it should connected with the black colour wire of the *FTDI cable*.
+2. This is the photo of connecting RFD to *FTDI cable*. The 8 wires connector in the middle is the *900ux to 8 way socket cable*. Check with the colour combination of the *FTDI cable* and the *900ux to 8 way socket cable* is as per the photo
+   ![RFD connection for configuration](https://github.com/user-attachments/assets/90f7dc57-12ab-4e51-95fe-c59e86349595)
+   like the left most pin in the rfd is the *GND pin* and it should connected with the black colour wire of the *FTDI cable*.
 3. I have set the RFD modems to below configurations
 4. My configurations of the RFD modems ![My RFD configurations](https://github.com/user-attachments/assets/116e0861-fea3-46ac-902a-053385913b28)
 5. Remove the *900ux to 8 way socket cable* from the rfd modem and connect it to the another modem and repeat the same steps from 1 to 4 to other rfd modem also.
