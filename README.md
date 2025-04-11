@@ -66,7 +66,7 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
    
    ![Rfd_pins_description](https://github.com/user-attachments/assets/d739b9fe-79fe-4e73-87a6-c7af716d7cfc)
    
-3. Dump a general *UART transmitter* code [ask whether the available code is suitable to add here] with a baud rate of 115200 in one of the arduino  without connecting the TX pin and RX pin.
+3. Dump a general *UART transmitter* code [ask whether the available code is suitable to add here] with a baud rate of 115200 in one of the arduino  without connecting the TX pin and RX pin.7
 4. After that connect the *UART pins* of the RFD modem to *UART pins* of the Arduino as per below
    
 5. ![rfd_debugging](https://github.com/user-attachments/assets/e1702fe5-083a-4902-823a-82548155d44a)
