@@ -3,12 +3,13 @@
 ## The repository explains about the setting up GNSS-RTK using the Ardusimple SimpleRTK2b series of boards
 
 ### Introduction
-- We are setting up the GNSS base station at initial using the budget board.
+- We are setting up the GNSS base station at initial using the budget board. This is the Budget board
 
   ![simplertk2b budget board](https://github.com/user-attachments/assets/b807ac37-eae4-4cc2-8e28-fef1fd5fbf99)
-- Then Connecting RFD modem through UART to send RTCM correction data to rover.
+- Then Connecting RFD modem through UART to send RTCM correction data to rover. This is the RFD modem
   
-  ![RFD900ux_Bundle__73525](https://github.com/user-attachments/assets/7515ee97-a9af-4164-a102-6676c8d6849a)
+  ![RFD868ux-IND-front__final__15890](https://github.com/user-attachments/assets/891c238e-0299-4a51-84d3-2884a0f7d040)
+
 - The RFD modems send the data from base station to heading kit in a certain net id and air data rate which will be set previously.
 - The lite board receive the data from the base station and send to rover board along with a heading.
   
@@ -37,7 +38,7 @@
 5. 2 x USB-B type cables
 6. 1 x [RFD868ux-IND Modem Bundle](https://store.rfdesign.com.au/rfd868ux-ind-modem-bundle-hs-8517-62-00-90/)
 7. Enough amount of M-F and F-F jumper wires
-Check whether all the products available as per the product links
+8. Check whether all the products available as per the product links
 
 ### Preprocess
 
