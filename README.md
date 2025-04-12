@@ -49,11 +49,11 @@
 ![RFD connection for configuration](https://github.com/user-attachments/assets/90f7dc57-12ab-4e51-95fe-c59e86349595)  
 
 like the left most pin in the rfd is the *GND pin* and it should connected with the black colour wire of the *FTDI cable*.
-4. I have set the RFD modems to below configurations
+4. I have set the RFD modems to below configurations  
 5. My configurations of the RFD modems 
 
-   ![My RFD configurations](https://github.com/user-attachments/assets/116e0861-fea3-46ac-902a-053385913b28)
-   
+   ![My RFD configurations](https://github.com/user-attachments/assets/63b74cba-377e-444d-9d1d-3558e8c2ea4a)
+
 6. Remove the *900ux to 8 way socket cable* from the rfd modem and connect it to the another modem and repeat the same steps from 1 to 4 to other rfd modem also.
 7. The RFD configurations of the both modems should be same to make the communication properly.
 
@@ -147,9 +147,9 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
    - Connect the **V Standard pin** of the RFD modem to **5V_OUT** pin of Budget board and **GND pin** of the RFD modem to **GND pin** of the Budget Board
    - Connect the IOREF pin of the Budget board to **3V3_OUT** pin so that the uart pins work on 3.3V power
    - Connect the **TX pin** of the RFD modem to the Budget board's **TX2 pin** and **RX pin** of the RFD modem to the Budget board's **RX2 pin**
-   - The same is done below for the reference
+   - The same is done below for the reference.
      
-     [Attach the connection of base station to a radio as a photo]
+     ![RFD to Gnss receiver connection](https://github.com/user-attachments/assets/ca8878b5-2687-4d59-820e-4115fc0404e1)
    
 ### Errors faced when setting up base station
 1. If the base station is not changed to TIME or TIME/DGNSS mode
@@ -193,7 +193,7 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
    - Follow the **Create a configuration file** section in the same website to update the changes you have made in the configuration of the board to an existing configuration file in the PC.
 
 ### Errors faced when setting up lite board in heading kit as moving base
-1. This is the middle of the process so we won't identify any errors here.
+1. This is the half of the heading kit configuration so we check for errors once the Rover board configurations got completed.
    
 ### Setting up Simplertk2b Budget Board as a Heading kit Rover board:
 1. Updating the firmware
@@ -231,8 +231,8 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
    - Connect the **TX pin** of the RFD modem to the lite board's **RX pin** and **RX pin** of the RFD modem to the Budget board's **TX pin**
    - The same is done below for the reference
      
-     [Attach the connection of rover to a radio as a photo]
-     
+     ![RFD to Heading kit connection](https://github.com/user-attachments/assets/f3085aeb-9d54-4e2e-a9c8-5bfc5a9154d8)
+
 ### Errors faced when setting up heading kit
 1. If the no rtk led blink on top of the lite board
    ### Solution
