@@ -228,7 +228,7 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
 4. Connecting the RFD modem to the heading kit to receive the data over radio
    - Connect the **V Standard pin** of the RFD modem to **5V_OUT** pin of Budget board and **GND pin** of the RFD modem to **GND pin** of the Budget Board
    - Connect the IOREF pin of the Budget board to **3V3_OUT** pin so that the uart pins work on 3.3V power
-   - Connect the **TX pin** of the RFD modem to the lite board's **RX pin** and **RX pin** of the RFD modem to the Budget board's **TX pin**
+   - Connect the **TX pin** of the RFD modem to the lite board's **RX pin** and **RX pin** of the RFD modem to the lite board's **TX pin**
    - The same is done below for the reference
      
      ![RFD to Heading kit connection](https://github.com/user-attachments/assets/f3085aeb-9d54-4e2e-a9c8-5bfc5a9154d8)
