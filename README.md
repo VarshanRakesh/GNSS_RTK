@@ -385,4 +385,5 @@ like the left most pin in the rfd is the **GND pin** and it should connected wit
    - At the top-level GSV there you can Right Click to Disable (Child) Messages
      [add photo]
      and we got the final screen as without satellites visibility messages since these messages are not needed for the rover to operate.
-     [final photo]
+     ![final screen after disable satellite visibility](https://github.com/user-attachments/assets/219cf9a5-53ca-4736-9ebf-35d4a8c2f41f)
+
