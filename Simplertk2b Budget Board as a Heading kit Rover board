@@ -58,3 +58,14 @@
    - verify whether the **IOREF** pin is connected to the **3V3_OUT** pin in both the base station and heading kit.
    - And check all of the connections done as per the photos and suitable configurations is loaded to the suitable boards.
    - If no_rtk led glows solid and shows 3D/DGNSS/FLOAT fix mode of the U-center software even after all these steps follow the debugging steps to check data is sending from the base station.
+
+### Known errors
+1. In rover board We tried running the ublox driver [GitHub - KumarRobotics/ublox: A driver for ublox gps](https://github.com/KumarRobotics/ublox) to get gps data in ros system. While launching the node I get this error “ERROR: txbuf alloc”. The baudrate is set to 115200.
+   Solution tried
+   - In ubx-cfg-nmea I change the verbose channel to 16 channel receiver.
+     [add photo]
+   - At the top-level GSV there you can Right Click to Disable (Child) Messages
+     [add photo]
+     and we got the final screen as without satellites visibility messages since these messages are not needed for the rover to operate.
+     ![final screen after disable satellite visibility](https://github.com/user-attachments/assets/219cf9a5-53ca-4736-9ebf-35d4a8c2f41f)
+
