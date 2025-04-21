@@ -282,9 +282,9 @@ like the left most pin in the rfd is the **GND pin** and it should connected wit
    - Connect the IOREF pin of the Budget board to **3V3_OUT** pin so that the uart pins work on 3.3V power
    - Connect the **TX pin** of the RFD modem to the lite board's **RX pin** and **RX pin** of the RFD modem to the lite board's **TX pin**
    - The same is done below for the reference
+      
+     ![rfd modem to heading kit](https://github.com/user-attachments/assets/14015897-b7d5-45f0-bba4-22a47cd1061f)
 
-     ![RFD to Heading kit connection](https://github.com/user-attachments/assets/f3085aeb-9d54-4e2e-a9c8-5bfc5a9154d8)
-     
    - After all connections are made in rover the no_rtk led starts to blink and turned off on both of the board within few minutes.
 
 ### Errors faced when setting up heading kit
