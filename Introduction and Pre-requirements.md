@@ -27,6 +27,8 @@
    - Download the RFDTools-V2.67.zip file from their website [RFD tools](https://files.rfdesign.com.au/tools/)
    - Extract the file in the separate folder
    - Go into the folder and double click the file RFD900ToolsSetup.msi and start to install.
+  
+3. Arduino IDE for Debugging
 
 #### Hardware Requirements
 1. 1 x [Simplertk2b budget Board](https://www.ardusimple.com/product/calibrated-survey-gnss-multiband-antenna-ip67/)
