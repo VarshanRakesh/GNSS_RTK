@@ -87,6 +87,7 @@ like the left most pin in the rfd is the **GND pin** and it should connected wit
 13. But if you have checked the data on the receiver side you can find the RTCM message which sent from the transmitter.
 14. ![rfd receiver serial](https://github.com/user-attachments/assets/4c9b51f8-43a0-4669-8085-28d02da4b0f7)
 15. Check whether data is received in the receiver arduino in serial monitor. Set the serial monitor with the same baud rate to get the data received.
+16. If no data found in the transmitter arduino and receiver arduino or check the wiring or change the baud rate or change the COM port or close and open the serial monitor or finally change the code
    
 ### Setting up Simplertk2b Budget Board as a Base station:
 1. Update the firmware
