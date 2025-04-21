@@ -17,7 +17,7 @@
 - The lite board fixed on top of rover board makes a heading kit
 
   ![Simplertk2b heading kit](https://github.com/user-attachments/assets/58be5a0c-ab2e-406e-9e24-eb5bf64ed94e)
-- We can get the *GPS_FIX* and *Orientation* from the **USB GPS** port in the rover board
+- We can get the **GPS_FIX** and **Orientation** from the **USB GPS** port in the rover board
 
 ### Prerequirements for setting up GNSS RTK
 
@@ -44,17 +44,17 @@
 
 #### Configure the RFD Modems
 1. Connect the FTDI cable to the RFD modem for configuring RFD modems.
-2. This is the photo of connecting RFD to *FTDI cable*. The 8 wires connector in the middle is the *900ux to 8 way socket cable*. Check with the colour combination of the *FTDI cable* and the *900ux to 8 way socket cable* is as per the photo
+2. This is the photo of connecting RFD to **FTDI cable**. The 8 wires connector in the middle is the **900ux to 8 way socket cable**. Check with the colour combination of the **FTDI cable** and the **900ux to 8 way socket cable** is as per the photo
 
 ![RFD connection for configuration](https://github.com/user-attachments/assets/90f7dc57-12ab-4e51-95fe-c59e86349595)  
 
-like the left most pin in the rfd is the *GND pin* and it should connected with the black colour wire of the *FTDI cable*.
+like the left most pin in the rfd is the **GND pin** and it should connected with the black colour wire of the **FTDI cable**.
 4. I have set the RFD modems to below configurations  
 5. My configurations of the RFD modems 
 
    ![My RFD configurations](https://github.com/user-attachments/assets/63b74cba-377e-444d-9d1d-3558e8c2ea4a)
 
-6. Remove the *900ux to 8 way socket cable* from the rfd modem and connect it to the another modem and repeat the same steps from 1 to 4 to other rfd modem also.
+6. Remove the **900ux to 8 way socket cable** from the rfd modem and connect it to the another modem and repeat the same steps from 1 to 4 to other rfd modem also.
 7. The RFD configurations of the both modems should be same to make the communication properly.
 
 #### Checking the communication has established perfectly
@@ -66,8 +66,8 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
    
    ![Rfd_pins_description](https://github.com/user-attachments/assets/d739b9fe-79fe-4e73-87a6-c7af716d7cfc)
    
-3. Dump a general *UART transmitter* code [ask whether the available code is suitable to add here] with a baud rate of 115200 in one of the arduino  without connecting the TX pin and RX pin.7
-4. After that connect the *UART pins* of the RFD modem to *UART pins* of the Arduino as per below
+3. Dump a general **UART transmitter** code [ask whether the available code is suitable to add here] with a baud rate of 115200 in one of the arduino  without connecting the TX pin and RX pin.7
+4. After that connect the **UART pins** of the RFD modem to **UART pins** of the Arduino as per below
    
 5. ![rfd_debugging](https://github.com/user-attachments/assets/e1702fe5-083a-4902-823a-82548155d44a)
    
@@ -117,7 +117,7 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
      ![downloading base station configuration](https://github.com/user-attachments/assets/e2c499a5-1bc1-4e96-95db-28e91d0d35c2)
    - Before loading the configuration files recheck that you are uploading the correct file. uploading an incorrect file might lead to malfunctions.
    - Load the configuration to the budget board referring the **Load a configuration file** section in [How to configure u-blox ZED-F9P](https://www.ardusimple.com/how-to-configure-ublox-zed-f9p/#elementor-toc__heading-anchor-6)
-   - On the top left of the U-center software select *view -> Message view*.
+   - On the top left of the U-center software select **view -> Message view**.
    - The message tab will get opened.
    - ![base station message view](https://github.com/user-attachments/assets/6caf81e6-df4b-45f2-a4eb-7ac45118f940)
    - Go to View > Messages View > UBX-CFG-TMODE3 and select Mode 1 – Suvey-in
@@ -140,36 +140,36 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
    - ![base station 1005](https://github.com/user-attachments/assets/8925be7b-1dc6-4fc2-8921-20d6e5e27c8b)
    - ![base station set 1005](https://github.com/user-attachments/assets/1025df98-559f-4f86-9d09-d4e9bb6cc319)
    - First to disabling the MSM4 messages and then enable MSM7 messages to connect with the rover which have MSM7 messages
-   - Select the F5-4A RTCM 3.3 1074 and disable in all checkboxes including UART 2 and USB checkbox and click send.
+   - Select the **F5-4A RTCM 3.3 1074** and disable in all checkboxes including UART 2 and USB checkbox and click send.
    - ![base station set 1074](https://github.com/user-attachments/assets/15e1f034-1f3a-43fa-a50e-e683da2677fd)
-   - Select the F5-54 RTCM 3.3 1084 and disable in all checkboxes including UART 2 and USB checkbox and click send.
+   - Select the **F5-54 RTCM 3.3 1084** and disable in all checkboxes including UART 2 and USB checkbox and click send.
    - ![base station set 1084](https://github.com/user-attachments/assets/c5bdfbfa-2f06-4856-9ee7-b94e5bf13e45)
-   - Select the F5-5E RTCM 3.3 1094 and disable in all checkboxes including UART 2 and USB checkbox and click send.
+   - Select the **F5-5E RTCM 3.3 1094** and disable in all checkboxes including UART 2 and USB checkbox and click send.
    - ![base station set 1094](https://github.com/user-attachments/assets/4dbb8dcf-e0e6-4867-9965-185dbbb7c3d8)
    - Now enabling the MSM7 messages.
-   - Select the F5-4D RTCM 3.3 1077 and ensure its only enabled in UART 2 and click send.
+   - Select the **F5-4D RTCM 3.3 1077** and ensure its only enabled in UART 2 and click send.
    - ![base station set 1077](https://github.com/user-attachments/assets/19341e90-f9e2-4533-86d0-4c8db3c4efa8)
-   - Select the F5-57 RTCM 3.3 1087 and ensure its only enabled in UART 2 and click send.
+   - Select the **F5-57 RTCM 3.3 1087** and ensure its only enabled in UART 2 and click send.
    - ![base station set 1087](https://github.com/user-attachments/assets/2c808814-eb83-4ea2-bea8-3ed6ebe7a924)
-   - Select the F5-61 RTCM 3.3 1097 and ensure its only enabled in UART 2 and click send.
+   - Select the **F5-61 RTCM 3.3 1097** and ensure its only enabled in UART 2 and click send.
    - ![base set 1097](https://github.com/user-attachments/assets/4470149c-4534-4213-9527-c089d6504275)
-   - Select the F5-E6 RTCM 3.3 1230 is only enabled in UART 2 and click send.
+   - Select the **F5-E6 RTCM 3.3 1230** is only enabled in UART 2 and click send.
    - ![base set 1230](https://github.com/user-attachments/assets/7d8d6527-65a2-482e-937a-16e79c5ee308)
-   - Now go to View > Messages View > UBX-CFG-PRT and change the target parameter to 2 - UART2.
+   - Now go to **View > Messages View > UBX-CFG-PRT** and change the target parameter to 2 - UART2.
    - ![base station port](https://github.com/user-attachments/assets/4c5b2178-2850-4307-aa76-a862d34bd2d4)
-   - Change the Protocol in parameter to none.
-   - Change the Protocol out parameter to 5 - RTCM3.
+   - Change the **Protocol in** parameter to none.
+   - Change the **Protocol out** parameter to 5 - RTCM3.
    - Set the baud rate to 115200 and then click send.
    - ![base station port value](https://github.com/user-attachments/assets/ba19358c-2b14-40fe-aebc-8935531d2ac7)
-   - Now go to View > Messages View > UBX-CFG-RATE and let the time source to be in 1 - GPS time.
+   - Now go to **View > Messages View > UBX-CFG-RATE** and let the time source to be in 1 - GPS time.
    - ![base station rate](https://github.com/user-attachments/assets/ec15f905-b0a6-4e9b-b207-3eeec0f24a1a)
-   - Set the measurement period to 100 [ms] to make the frequency to 10 hz and click send.
+   - Set the **measurement period** to 100 [ms] to make the frequency to 10 hz and click send.
    - ![base station rate value](https://github.com/user-attachments/assets/d31deed8-3b29-4301-ae1d-2d3ffb3ba136)
-   - Go to UBX-CFG-CFG and save the configurations.
+   - Go to **UBX-CFG-CFG** and save the configurations.
    - ![base save 1](https://github.com/user-attachments/assets/b3d0ed5f-2ade-4fdf-bcdd-836a3a7aba44)
-   - On left top of the U-center app select the Receiver > Action > Save config to store the changes made in the board permenantly to the board.
+   - On left top of the U-center app select the **Receiver > Action > Save config** to store the changes made in the board permenantly to the board.
    - ![base station save 2](https://github.com/user-attachments/assets/da2916e1-ce43-43f3-a194-02a3abd95d5a)
-   - Wait till more than 2 to 3 hours to get the TIME or TIME/DGNSS mode.
+   - Wait till more than 2 to 3 hours to get the **TIME or TIME/DGNSS mode**.
 
 4. Connecting the RFD modem to the budget board to send the data over radio
    - Connect the **V Standard pin** of the RFD modem to **5V_OUT** pin of Budget board and **GND pin** of the RFD modem to **GND pin** of the Budget Board
@@ -182,10 +182,10 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
 ### Errors faced when setting up base station
 1. If the base station is not changed to TIME or TIME/DGNSS mode
    ### Solution
-   - On the top left of the U-center software select *view -> Message view*.
+   - On the top left of the U-center software select **view -> Message view**.
    - The message tab will get opened.
    - ![base station message view](https://github.com/user-attachments/assets/3bbc621b-69e9-4f27-9fc4-0b6de5ef5ef5)
-   - In the Messages tab go to  *UBX -> NAV -> PVT* and select the column and enable it
+   - In the Messages tab go to  **UBX -> NAV -> PVT** and select the column and enable it
    - ![base ubx nav pvt](https://github.com/user-attachments/assets/c1c9f46c-c439-46c6-bd00-4da1a5285d0e)
    - In right side of the app the **fix type** column changed to TIME or TIME/DGNSS mode.
      
@@ -213,7 +213,7 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
 3. Configuration file not available
    - If the configuration file has not available download the **lite board configuration** file in the [moving base configuration](https://drive.google.com/file/d/17MkmwKJANRGKc4dVwS4mvsxehgPvbiTg/view?usp=sharing).
    - Or you can download the same from the **For 1hz** section, the file besides **On the lite board** in the [simpleRTK2B+heading hookup guide](https://www.ardusimple.com/simplertk2heading-hookup-guide/). Right click on the file and select **save it as** option to save in the browsed folder.
-   - On the top left of the U-center software select *view -> Message view*.
+   - On the top left of the U-center software select **view -> Message view**.
    - The message tab will get opened.
    - ![base station message view](https://github.com/user-attachments/assets/c564d676-8c07-4c56-8af2-942eec433fb7)
    - Double click the UBX and under UBX double click the CFG.
@@ -251,7 +251,7 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
 3. Configuration file not available
    - If the configuration file has not available, download the **rover board configuration** file in the [Rover board configuration](https://drive.google.com/file/d/1-d5m3nyiv6EF2fXdvWtEuJJczOBV59ue/view?usp=sharing)
    -Or you can download the same from the **For 1hz** section, the file besides **On the budget board** in the [simpleRTK2B+heading hookup guide](https://www.ardusimple.com/simplertk2heading-hookup-guide/). Right click on the file and select **save it as** option to save in the browsed folder.
-   - On the top left of the U-center software select *view -> Message view*.
+   - On the top left of the U-center software select **view -> Message view**.
    - ![rover messages view](https://github.com/user-attachments/assets/c22de780-be3e-490a-80e5-4749cf096cfe)
    - The message tab will get opened.
    - Go to UBX and under it double click the CFG.
