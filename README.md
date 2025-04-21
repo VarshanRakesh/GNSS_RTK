@@ -67,7 +67,7 @@ like the left most pin in the rfd is the **GND pin** and it should connected wit
    ![Rfd_pins_description](https://github.com/user-attachments/assets/d739b9fe-79fe-4e73-87a6-c7af716d7cfc)
    
 3. Dump a general **UART transmitter** code which is below[ask whether the available code is suitable to add here] with a baud rate of 115200 in one of the arduino  without connecting the TX pin and RX pin.
-4. After that connect the **UART pins** of the RFD modem to **UART pins** of the Arduino as per below
+4. Then, connect the **UART pins** of the RFD modem to **UART pins** of the Arduino as per below
    
 5. ![rfd_debugging](https://github.com/user-attachments/assets/e1702fe5-083a-4902-823a-82548155d44a)
    
@@ -78,8 +78,8 @@ like the left most pin in the rfd is the **GND pin** and it should connected wit
    and disconnect the transmitter arduino board.
 
 6. In another arduino make the connection as per below since the wires are twisted and header added.
-7. [add the arduino to rfd modem]
-8. Dump a general *UART receiver* code with the same baud rate in another arduino board without connecting the TX and RX pin then follow the same connections as per the step 4 and 5.
+7. ![rfd modem to receiver arduino](https://github.com/user-attachments/assets/d2ffea63-6fec-487c-a5aa-92bb290c28fa)
+8. Dump a general **UART receiver** code with the same baud rate in another arduino board without connecting the TX and RX pin then follow the same connections as per the step 4 and 5.
 9. Now connect the transmitter board with RFD modem connected to TX and RX pin and next connect the receiver board with RFD modem connected to TX and RX pin.
 10. When you open the serial monitor of the transmitter arduino you may find this data
 11. ![rfd transmitter serial](https://github.com/user-attachments/assets/285c71c1-a6ba-41ca-bea3-87cee9c8f350)
