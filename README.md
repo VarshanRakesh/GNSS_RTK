@@ -66,7 +66,7 @@ like the left most pin in the rfd is the **GND pin** and it should connected wit
    
    ![Rfd_pins_description](https://github.com/user-attachments/assets/d739b9fe-79fe-4e73-87a6-c7af716d7cfc)
    
-3. Dump a general **UART transmitter** code [ask whether the available code is suitable to add here] with a baud rate of 115200 in one of the arduino  without connecting the TX pin and RX pin.7
+3. Dump a general **UART transmitter** code which is below[ask whether the available code is suitable to add here] with a baud rate of 115200 in one of the arduino  without connecting the TX pin and RX pin.
 4. After that connect the **UART pins** of the RFD modem to **UART pins** of the Arduino as per below
    
 5. ![rfd_debugging](https://github.com/user-attachments/assets/e1702fe5-083a-4902-823a-82548155d44a)
@@ -75,8 +75,18 @@ like the left most pin in the rfd is the **GND pin** and it should connected wit
    **TX pin** of RFD modem -> **RX pin** of Arduino
    **RX pin** of RFD modem -> **TX pin** of Arduino
    **GND pin** of RFD modem -> **GND pin** of RFD modem
-6. Dump a general *UART receiver* code with the same baud rate in another arduino board without connecting the TX and RX pin then follow the same connections as per the step 4 and 5.
-7. Check whether data is received in the receiver arduino in serial monitor. Set the serial monitor with the same baud rate to get the data received.
+   and disconnect the transmitter arduino board.
+
+6. In another arduino make the connection as per below since the wires are twisted and header added.
+7. [add the arduino to rfd modem]
+8. Dump a general *UART receiver* code with the same baud rate in another arduino board without connecting the TX and RX pin then follow the same connections as per the step 4 and 5.
+9. Now connect the transmitter board with RFD modem connected to TX and RX pin and next connect the receiver board with RFD modem connected to TX and RX pin.
+10. When you open the serial monitor of the transmitter arduino you may find this data
+11. ![rfd transmitter serial](https://github.com/user-attachments/assets/285c71c1-a6ba-41ca-bea3-87cee9c8f350)
+12. Since write() function doesn't print data on serial monitor you can't verify it in serial monitor of the transmitter arduino.
+13. But if you have checked the data on the receiver side you can find the RTCM message which sent from the transmitter.
+14. ![rfd receiver serial](https://github.com/user-attachments/assets/4c9b51f8-43a0-4669-8085-28d02da4b0f7)
+15. Check whether data is received in the receiver arduino in serial monitor. Set the serial monitor with the same baud rate to get the data received.
    
 ### Setting up Simplertk2b Budget Board as a Base station:
 1. Update the firmware
