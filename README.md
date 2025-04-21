@@ -317,10 +317,10 @@ like the left most pin in the rfd is the *GND pin* and it should connected with 
    ![timeout error](https://github.com/user-attachments/assets/d6c4c091-3a6d-4895-8316-bf5accd167a2)
    Solution
    - Connect the USB-B type cable to **USB GPS** port and not in **USB XBEE**.
-   - Try the following steps one by one two times.
+   - It might be a permission issue Try the following steps one by one two times.
    - Load the configuration with different baud rate.
    - disconnect the com port in the software before removing the cable and connect it again.
-   - Try it with different com port with and try again with the different baud rate.
+   - Try it with different com port with and try again with the different baud rate, try to use the another cable.
    - At final it shows the successfully loaded message.
    - ![load save success](https://github.com/user-attachments/assets/679932b9-ee97-4611-8931-a8a3936c51ec)
    - So that you can proceed further.
